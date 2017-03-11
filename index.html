@@ -98,10 +98,11 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     var link = document.createElement('a');
     link.href = '#';
     link.className = 'active';
-    link.textContent = id.replace(/_/g, " ");
+    label_name = id.replace(/_/g, " ")
+    link.textContent = label_name;
 
     link.onclick = function (e) {
-        var clickedLayer = this.textContent;
+        var clickedLayer = this.textContent.replace(/ /g, "_");
         e.preventDefault();
         e.stopPropagation();
 
