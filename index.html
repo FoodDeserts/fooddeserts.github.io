@@ -73,7 +73,7 @@ var map = new mapboxgl.Map({
 
 map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['grocery', 'meat_seafood', 'catering', 'non_profit', 'bed_and_breakfast', 'bakeries', 'school_kitchen', 'mobile_food_services', 'limited_food_sources'] // replace this with the name of the layer
+    layers: ['deserts', 'grocery', 'meat_seafood', 'catering', 'non_profit', 'bed_and_breakfast', 'bakeries', 'school_kitchen', 'mobile_food_services', 'limited_food_sources'] // replace this with the name of the layer
   });
 
   if (!features.length) {
@@ -90,7 +90,7 @@ map.on('click', function(e) {
 });
 
 
-var toggleableLayerIds = [ 'deserts','grocery', 'meat_seafood', 'catering', 'non_profit', 'bed_and_breakfast', 'bakeries', 'school_kitchen', 'mobile_food_services', 'limited_food_sources' ];
+var toggleableLayerIds = [ 'deserts', 'grocery', 'meat_seafood', 'catering', 'non_profit', 'bed_and_breakfast', 'bakeries', 'school_kitchen', 'mobile_food_services', 'limited_food_sources' ];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
@@ -102,7 +102,7 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     link.textContent = label_name.toUpperCase();
 
     link.onclick = function (e) {
-        var clickedLayer = this.textContent.replace(/ /g, "_");
+        var clickedLayer = this.textContent.replace(/ /g, "_").toLowerCase();
         e.preventDefault();
         e.stopPropagation();
 
