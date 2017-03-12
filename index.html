@@ -17,7 +17,7 @@
         background: #fff;
         position: absolute;
         z-index: 1;
-        top: 10px;
+        top: 70px;
         right: 10px;
         border-radius: 3px;
         width: 120px;
@@ -90,7 +90,7 @@ map.on('click', function(e) {
 });
 
 
-var toggleableLayerIds = [ 'grocery', 'meat_seafood', 'catering', 'non_profit', 'bed_and_breakfast', 'bakeries', 'school_kitchen', 'mobile_food_services', 'limited_food_sources', 'deserts' ];
+var toggleableLayerIds = [ 'deserts','grocery', 'meat_seafood', 'catering', 'non_profit', 'bed_and_breakfast', 'bakeries', 'school_kitchen', 'mobile_food_services', 'limited_food_sources' ];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
@@ -99,7 +99,7 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     link.href = '#';
     link.className = 'active';
     label_name = id.replace(/_/g, " ")
-    link.textContent = label_name;
+    link.textContent = label_name.toUpperCase();
 
     link.onclick = function (e) {
         var clickedLayer = this.textContent.replace(/ /g, "_");
@@ -120,6 +120,11 @@ for (var i = 0; i < toggleableLayerIds.length; i++) {
     var layers = document.getElementById('menu');
     layers.appendChild(link);
 }
+
+map.on('mousemove', function (e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['deserts','grocery', 'meat_seafood', 'catering', 'non_profit', 'bed_and_breakfast', 'bakeries', 'school_kitchen', 'mobile_food_services', 'limited_food_sources'] });
+    map.getCanvas().style.cursor = features.length ? 'pointer' : '';
+});
 
 </script>
 
