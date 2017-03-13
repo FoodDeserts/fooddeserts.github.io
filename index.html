@@ -54,10 +54,41 @@
     #menu a.active:hover {
         background: #3074a4;
     }
+
+    #chart-info {
+        background: #fff;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        left: 10px;
+        border-radius: 3px;
+        width: cover;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-family: 'Open Sans', sans-serif;
+        opacity: .75;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
+    p {
+        text-align: center;
+        margin-top: 0;
+    }
+
 </style>
 
 <nav id="menu"></nav>
 <div id="map"></div>
+<div id="chart-info">
+    <h2>Seattle Food Deserts</h2>
+    <p>Source: <a href="https://data.kingcounty.gov/">King County Open Data</a></p>
+</div>
 
 
 
